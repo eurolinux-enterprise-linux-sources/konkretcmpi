@@ -1,0 +1,20 @@
+commit 8a70b34baf6cfd4c638d00c33e03c842f309ffec
+Author: Radek Novacek <rnovacek@redhat.com>
+Date:   Wed Jul 31 17:17:36 2013 +0200
+
+    Fix instance to string conversion
+
+diff --git a/src/mof/MOF_Data_Type.cpp b/src/mof/MOF_Data_Type.cpp
+index a2b0f56..2e28c30 100644
+--- a/src/mof/MOF_Data_Type.cpp
++++ b/src/mof/MOF_Data_Type.cpp
+@@ -76,6 +76,9 @@ const char* MOF_Data_Type::to_string(int data_type)
+         case TOK_DATETIME: 
+             return "datetime";
+ 
++        case TOK_INSTANCE:
++            return "instance";
++
+         default:
+             MOF_ASSERT(false);
+             return 0;
